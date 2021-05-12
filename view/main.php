@@ -20,14 +20,20 @@
 </head>
 
 <body>
-<ul id="mobile--menu" class="menu-content">
+    <!-- Contenido del menu movil -->
+    <ul id="mobile--menu" class="menu-content">
         <li>
-            <a href="#">Salir</a>
+            <a href="#">Cerrar Sesión</a>
         </li>
     </ul>
     <nav id="top-nav">
         <a href="#" class="home">
-            <i class="fas fa-home"></i>
+            <!-- TODO
+            Editar estilo css
+            Agregar datos de la session
+            Funcion de boton "salir"
+        -->
+            Usuario01
         </a>
         <div class="left-buttons">
             <div class="menu-container">
@@ -38,7 +44,7 @@
                 </a>
                 <ul id="desktop--menu" class="menu-content">
                     <li>
-                        <a href="#">Salir</a>
+                        <a href="#">Cerrar Sesión</a>
                     </li>
                 </ul>
             </div>

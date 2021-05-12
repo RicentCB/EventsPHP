@@ -363,7 +363,7 @@ nav#top-nav{
     }
 }
 nav#top-nav a.home{
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     font-size: 1.5em;
     padding: 5px;
     border-radius: 5px;
@@ -405,6 +405,7 @@ nav#top-nav a.home{
     height: 3px;
 }
 @media only screen and (min-width: 768px){
+    nav#top-nav a.home,
     #top-nav .left-buttons .menu-container{
         background-color: rgba(44, 44, 44, 0.75);
     }
@@ -422,11 +423,11 @@ nav#top-nav a.home{
 }
 .menu-content{
     height: max-content;
-    padding: 80px 10px 30px 15px;
+    padding: 80px 30px 30px 15px;
     box-sizing: border-box;
     position: fixed;
     z-index: 2;
-    background-color: rgba(27, 27, 27, 0.8);
+    background-color: rgba(27, 27, 27, 0.95);
     width: 100%;
     opacity: 0;
     visibility: hidden;
