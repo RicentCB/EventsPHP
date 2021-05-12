@@ -7,7 +7,7 @@ $.ajax({
     contentType: false,
     processData: false,
     dataType: "json",
-    beforeSend: ()=>{
+    beforeSend: () => {
         console.info("Consultando eventos...");
     },
     success: ans => {
@@ -20,11 +20,11 @@ $.ajax({
                     <h3>${event["fecha"]}</h3>
                     <p>${event["descripcion"]}</p>
                     <a href="#" class="start-button sign-event">
-                    <span>Registrarme</span>
-                    <svg width="13px" height="10px" viewBox="0 0 13 10">
-                    <path d="M1,5 L11,5"></path>
-                    <polyline points="8 1 12 5 8 9"></polyline>
-                    </svg>
+                        <span>Registrarme</span>
+                        <svg width="13px" height="10px" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                        </svg>
                     </a>
                 </div>`)
                 )
@@ -41,7 +41,11 @@ $.ajax({
         }
     }
 });
-
 $(document).ready(() => {
-    // console.log("listo");
+    console.clear();
+    eventsContainer.on("click", ".sign-event", function (e) {
+        e.preventDefault();
+        let idEvent = $(this).parent().attr("id");
+        console.log(idEvent);
+    })
 })
