@@ -332,3 +332,205 @@ input[type="text"], input[type="password"]{
 input[type="text"]:focus, input[type="password"]:focus{
     outline: none;
 }
+
+
+/*------------------------------------------
+        Barra de Navegacion
+--------------------------------------------*/
+nav#top-nav{
+    position: fixed;
+    width: 100vw;
+    top: 0;
+    background-color: #4e4e4e;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    z-index: 3;
+    padding: 0 15px;
+    height: 60px;
+    /* box-shadow: 0 0 20px rgba(16, 24, 24, 1); */
+}
+@media only screen and (min-width: 600px){
+    nav#top-nav{
+        padding: 0 30px;
+    }
+}
+@media only screen and (min-width: 768px){
+    nav#top-nav{
+        padding: 0 40px;
+        background-color: rgba(27, 27, 27);
+    }
+}
+nav#top-nav a.home{
+    background-color: rgba(255, 255, 255, 0.5);
+    font-size: 1.5em;
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
+}
+#top-nav .left-buttons{
+    display: flex;
+    align-items: flex-start;
+    height: 100%;
+    margin-top: 18px;
+}
+#top-nav .left-buttons > a:first-child{
+    margin-right: 15px;
+}
+#top-nav .left-buttons .menu--items{
+    display: none;
+}
+#top-nav .left-buttons .menu-container{
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 2px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    transition: width 0.3s ease-in, height ease-in  .3s;
+    width: 50px;
+    height: 42px;
+    padding: 9px 3px 0 0;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+#top-nav .hamburger{
+    padding: 0;
+}
+#top-nav .hamburger .hamburger-inner,
+#top-nav .hamburger .hamburger-inner::before,
+#top-nav .hamburger .hamburger-inner::after{
+    background-color: rgb(243, 243, 243);
+    width: 35px;
+    height: 3px;
+}
+@media only screen and (min-width: 768px){
+    #top-nav .left-buttons .menu-container{
+        background-color: rgba(44, 44, 44, 0.75);
+    }
+}
+/*------------------------------------------
+        Contenido del Menu
+--------------------------------------------*/
+@keyframes cd-3d-rotation {
+    0% {
+      transform: perspective(1000px) rotateX(-90deg);
+    }
+    100% {
+      transform: perspective(1000px) translateY(0);
+    }
+}
+.menu-content{
+    height: max-content;
+    padding: 80px 10px 30px 15px;
+    box-sizing: border-box;
+    position: fixed;
+    z-index: 2;
+    background-color: rgba(27, 27, 27, 0.8);
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+    margin: 0;
+}
+.menu-content.is-visible{
+    opacity: 1;
+    visibility: visible;
+    animation: cd-3d-rotation 0.5s 0.3s;
+    transform-origin: center top;
+    /* Force Hardware Acceleration */
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    animation-fill-mode: backwards;
+}
+.menu-content li{
+    font-size: 1.85em;
+    text-transform: uppercase;
+    margin: 5px 0;
+}
+.menu-content li a{
+    text-align: right;
+    padding: 8px 0px;
+    color: rgb(226, 46, 136);
+    position: relative;
+    width: 100%;
+    display: inline-block;
+    box-sizing: border-box;
+}
+/* Item Activo */
+.menu-content li.active a{
+    padding-right: 50px;
+    font-weight: bold;
+    color: #015579;
+}
+.menu-content li a:before{
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    background-color: #015579;
+    top: 20px;
+    right: 20px;
+    display: none;
+}
+.menu-content li.active a:before{
+    display: block;
+}
+@media only screen and (min-width: 768px){
+    /* Ocultar menu movil en escritorio */
+    .menu-content#mobile--menu{
+        display: none;
+    }
+}
+/* Prepara menu de escritorio */
+
+#top-nav .menu-content#desktop--menu{
+    display: none;
+    background-color: transparent;
+    opacity: 1;
+    visibility: visible;
+    position: unset;
+}
+@media only screen and (min-width: 768px){
+    #top-nav .left-buttons .menu-container.is-active{
+        width: 250px;
+        height: 120px;
+    }
+    #top-nav .is-active .menu-content#desktop--menu{
+        display: block;
+    }
+    #top-nav .menu-content{
+        height: 100%;
+        padding-top: 20px;
+    }
+    #top-nav .menu-content li{
+        margin: 3px 0;
+        font-size: 1em;
+        transition: all .25s ease-in-out;
+    }
+    #top-nav .menu-content li:hover{
+        transform: scale(1.1);
+    }
+    #top-nav .menu-content li a{
+        font-size: 1.2em;
+        font-weight: bold;
+        color: rgb(219, 33, 120);
+        padding-right: 15px;
+    }
+    #top-nav .menu-content li a:before{
+        background-color: white;
+        top: 11px;
+        width: 12px;
+        height: 12px;
+        right: 25px;
+    }
+    #top-nav .menu-content li.active a{
+        padding-right: 55px;
+        color: #fff;
+    }
+    #top-nav .menu-content li.active:hover{
+        transform: scale(1);
+    }
+}

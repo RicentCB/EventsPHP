@@ -29,12 +29,12 @@ $.ajax({
                 </div>`)
                 )
             );
-            Swal.fire({
-                title: 'Bienvenido',
-                text: 'Aqui podrás revisar nuestros ultimos eventos',
-                icon: 'success',
-                confirmButtonText: 'Aceptar'
-            })
+            // Swal.fire({
+            //     title: 'Bienvenido',
+            //     text: 'Aqui podrás revisar nuestros ultimos eventos',
+            //     icon: 'success',
+            //     confirmButtonText: 'Aceptar'
+            // })
             console.log("Eventos Cargados");
         } else {
             Swal.fire({
@@ -49,6 +49,21 @@ $.ajax({
 });
 $(document).ready(() => {
     console.clear();
+    let btnMenu = $(".hamburger")
+    let contentMenu = $(".menu-content");
+
+    btnMenu.on("click", function(e){
+        e.preventDefault();
+        if($(this).hasClass("is-active")){
+            $(this).removeClass("is-active")
+            contentMenu.removeClass("is-visible");
+            $(".menu-container").removeClass("is-active");
+        }else{
+            $(this).addClass("is-active")
+            contentMenu.addClass("is-visible");
+            $(".menu-container").addClass("is-active");
+        }
+    })
     //Pagina de eventos
     eventsContainer.on("click", ".sign-event", function (e) {
         e.preventDefault();

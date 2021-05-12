@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cabin&family=Montserrat&family=Oswald&display=swap"
         rel="stylesheet">
     <!-- ------ CSS ------ -->
+    <link rel="stylesheet" href="view/css/hamburger.min.css">
     <link rel="stylesheet" href="view/css/basic.css">
     <link rel="stylesheet" href="view/css/main.css">
     <!-- --- PLUGIS JS --- -->
@@ -19,8 +20,33 @@
 </head>
 
 <body>
-    <!-- Contendor de la practica -->
-    <main>
+<ul id="mobile--menu" class="menu-content">
+        <li>
+            <a href="#">Salir</a>
+        </li>
+    </ul>
+    <nav id="top-nav">
+        <a href="#" class="home">
+            <i class="fas fa-home"></i>
+        </a>
+        <div class="left-buttons">
+            <div class="menu-container">
+                <a class="hamburger hamburger--slider" href="#">
+                    <span class="hamburger-box">
+                      <span class="hamburger-inner"></span>
+                    </span>
+                </a>
+                <ul id="desktop--menu" class="menu-content">
+                    <li>
+                        <a href="#">Salir</a>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+    </nav>
+    <!-- Contendor de la Principal -->
+    <main id="events">
         <h1>Eventos Disponibles</h1>
         <section class="events-container">
             <!-- <div class="event">
