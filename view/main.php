@@ -41,8 +41,8 @@
             var_dump($users);
             echo "</pre>";
         ?> -->
-        </main>
-    </section>
+        </section>
+    </main>
 
     <!-- ======== SCRIPTS ======== -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
