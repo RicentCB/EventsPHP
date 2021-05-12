@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="view/css/main.css">
     <!-- --- PLUGIS JS --- -->
     <script src="https://kit.fontawesome.com/faf5c76420.js" crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
 </head>
 

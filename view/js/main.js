@@ -1,3 +1,4 @@
+
 const eventsContainer = $('main .events-container');
 //Metodo AJAX
 $.ajax({
@@ -5,14 +6,16 @@ $.ajax({
     cache: false,
     contentType: false,
     processData: false,
-    dataType:"json",
+    dataType: "json",
+    beforeSend: ()=>{
+        console.info("Consultando eventos...");
+    },
     success: ans => {
-        if(ans["type"]==="success"){
+        if (ans["type"] === "success") {
             let events = ans["message"];
             eventsContainer.html(
-                events.map(event => {
-                    return `
-                    <div class="event" id="${event["eventoID"]}">
+                events.map(event =>
+                (`<div class="event" id="${event["eventoID"]}">
                     <h2>${event["titulo"]}</h2>
                     <h3>${event["fecha"]}</h3>
                     <p>${event["descripcion"]}</p>
@@ -23,15 +26,22 @@ $.ajax({
                     <polyline points="8 1 12 5 8 9"></polyline>
                     </svg>
                     </a>
-                    </div>`;
-                })
+                </div>`)
                 )
-        }else{
-            console.log("error")
+            );
+            console.log("Eventos Cargados");
+        } else {
+            console.error(ans["message"]);
+            Swal.fire({
+                title: 'Error',
+                text: 'Error al mostrar los eventos,',
+                icon: 'error',
+                confirmButtonText: 'Aceptar'
+            })
         }
     }
 });
 
-$(document).ready(()=>{
+$(document).ready(() => {
     // console.log("listo");
 })
