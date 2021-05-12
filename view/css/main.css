@@ -57,4 +57,10 @@ main p {
     border-radius: 10px;
     padding: 10px 20px 20px 30px;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
+.event h2{ flex: 2;}
+.event h3{ flex: 1;}
+.event p{ flex: 1;}
