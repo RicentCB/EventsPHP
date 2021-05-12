@@ -58,7 +58,12 @@
                     </svg>
                 </a>
             </div>
-
+        <?php
+            $users = UsersController::ctrReadUsers();
+            echo "<pre>";
+            var_dump($users);
+            echo "</pre>";
+        ?>
         </main>
     </section>
 

@@ -4,9 +4,9 @@
         static public function connect(){
 
             $serv = "blue-database.cnr6gomwrolg.us-east-1.rds.amazonaws.com";
-            $db = "elarcoiris";
+            $db = "amxtest";
             $user = "amx_test";
-            $pass = "";
+            $pass = "32k/*<PKq.y!YYrV";
     
             $link = new PDO("mysql:host=".$serv.";dbname=".$db."",
                         $user,
