@@ -59,7 +59,7 @@
                 </a>
             </div>
         <?php
-            $users = UsersController::ctrReadUsers();
+            $users = EventsController::ctrReadEvents();
             echo "<pre>";
             var_dump($users);
             echo "</pre>";

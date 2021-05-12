@@ -1,10 +1,12 @@
 <?php
     require_once ("conection.php");
 
-    class UsersModel{
-        /* Leer Datos de usuario */
-        static public function mdlReadUsers($item, $value){
-            $sql  = "SELECT * FROM Usuarios ";
+    class EventsModel{
+        /*-----------------------------------------
+            Leer Datos de eventos
+        -----------------------------------------*/
+        static public function mdlReadEvents($item, $value){
+            $sql  = "SELECT * FROM Eventos ";
             
             if($item == null){
                 $stmt = Conexion::connect() -> prepare($sql);
