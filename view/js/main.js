@@ -29,20 +29,27 @@ $.ajax({
                 </div>`)
                 )
             );
+            Swal.fire({
+                title: 'Bienvenido',
+                text: 'Aqui podrás revisar nuestros ultimos eventos',
+                icon: 'success',
+                confirmButtonText: 'Aceptar'
+            })
             console.log("Eventos Cargados");
         } else {
-            console.error(ans["message"]);
             Swal.fire({
                 title: 'Error',
                 text: 'Error al mostrar los eventos,',
                 icon: 'error',
                 confirmButtonText: 'Aceptar'
             })
+            console.error(ans["message"]);
         }
     }
 });
 $(document).ready(() => {
     console.clear();
+    //Pagina de eventos
     eventsContainer.on("click", ".sign-event", function (e) {
         e.preventDefault();
         let idEvent = $(this).parent().attr("id");
