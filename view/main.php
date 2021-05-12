@@ -22,7 +22,7 @@
     <main>
         <h1>Eventos Disponibles</h1>
         <section class="events-container">
-            <div class="event">
+            <!-- <div class="event">
                 <h2>Titulo</h2>
                 <h3>Fecha</h3>
                 <p>Descripcion</p>
@@ -33,36 +33,12 @@
                         <polyline points="8 1 12 5 8 9"></polyline>
                     </svg>
                 </a>
-            </div>
-            <div class="event">
-                <h2>Titulo</h2>
-                <h3>Fecha</h3>
-                <p>Descripcion</p>
-                <a href="#" class="start-button">
-                    <span>Inscribirse</span>
-                    <svg width="13px" height="10px" viewBox="0 0 13 10">
-                        <path d="M1,5 L11,5"></path>
-                        <polyline points="8 1 12 5 8 9"></polyline>
-                    </svg>
-                </a>
-            </div>
-            <div class="event">
-                <h2>Titulo</h2>
-                <h3>Fecha</h3>
-                <p>Descripcion</p>
-                <a href="#" class="start-button">
-                    <span>Inscribirse</span>
-                    <svg width="13px" height="10px" viewBox="0 0 13 10">
-                        <path d="M1,5 L11,5"></path>
-                        <polyline points="8 1 12 5 8 9"></polyline>
-                    </svg>
-                </a>
-            </div>
+            </div> -->
         <?php
-            $users = EventsController::ctrReadEvents();
-            echo "<pre>";
-            var_dump($users);
-            echo "</pre>";
+            // $users = EventsController::ctrReadEvents();
+            // echo "<pre>";
+            // var_dump($users);
+            // echo "</pre>";
         ?>
         </main>
     </section>
@@ -76,6 +52,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.16.1/TweenMax.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.12.1/plugins/CSSRulePlugin.min.js"></script>
     <!-- Custom Script -->
+    <script src="view/js/main.js"></script>
 
 </body>
 
