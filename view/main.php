@@ -35,12 +35,12 @@
                     </svg>
                 </a>
             </div> -->
-        <?php
+        <!-- <?php
             $users = EventsUsersController::ctrReadEventsUsers();
             echo "<pre>";
             var_dump($users);
             echo "</pre>";
-        ?>
+        ?> -->
         </main>
     </section>
 
@@ -53,7 +53,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.16.1/TweenMax.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.12.1/plugins/CSSRulePlugin.min.js"></script>
     <!-- Custom Script -->
-    <!-- <script src="view/js/main.js"></script> -->
+    <script src="view/js/main.js"></script>
 
 </body>
 

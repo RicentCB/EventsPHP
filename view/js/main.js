@@ -46,6 +46,26 @@ $(document).ready(() => {
     eventsContainer.on("click", ".sign-event", function (e) {
         e.preventDefault();
         let idEvent = $(this).parent().attr("id");
-        console.log(idEvent);
+        
     })
+    //Metodo AJAX para registrar nuevo evento        
+    var data = new FormData();
+    data.append("action", "registerEventUser");
+
+    $.ajax({
+        url: "ajax/eventsUsers.ajax.php",
+        method: "POST",
+        data: data,
+        cache: false,
+        contentType: false,
+        processData: false,
+        // dataType: "json",
+        // beforeSend: () => {
+        //     console.info("Consultando eventos...");
+        // },
+        success: ans => {
+            console.log(ans);
+        }
+    });
+    
 })
