@@ -82,6 +82,12 @@ p.rich span {
     flex: 2;
 }
 
+.center-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 /*----------------------------------------------------
     SCROLL BAR
 -----------------------------------------------------*/
@@ -300,4 +306,29 @@ input::-webkit-inner-spin-button {
 /* Sweet Alert */
 .swal2-content{
     font-family: 'Montserrat', sans-serif!important;
+}
+/* Formulario */
+.input{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+.input > label{
+    font-size: 1.25em;
+    color: rgb(207, 207, 207);
+    margin-bottom: 5px;
+    padding: 5px 10px;
+}
+input[type="text"], input[type="password"]{
+    background-color: transparent;
+    appearance: none;
+    border: none;
+    padding: 5px 10px;
+    border: 2px solid rgb(149, 149, 149);
+    border-radius: 10px;
+    font-size: 1.1em;
+    color: white;
+}
+input[type="text"]:focus, input[type="password"]:focus{
+    outline: none;
 }
