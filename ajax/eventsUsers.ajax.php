@@ -14,13 +14,6 @@
                 $registered = EventsUsersController::ctrCreateEventUsers($idEvent, $idUser);
                 echo json_encode(array("type"=>"success", "message"=>$registered));
                 break;
-            case 'readEventUsersIdUser':
-                $idUser = $_POST["idUser"];
-                // $registered = EventsUsersController::ctrReadEventsUsers("usuarioID", $idUser);
-                $registered = EventsUsersController::ctrGetNotRegisteredEvents($idUser);
-                
-                echo json_encode(array("type"=>"success", "message"=>$registered));
-                break;
             default:
                 echo json_encode(array("type"=>"error", "message"=>"Accion no coincide con niguna opcion disponible"));
         }

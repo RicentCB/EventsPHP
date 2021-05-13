@@ -10,7 +10,7 @@
             if(true){
                 session_start();
                 $_SESSION["login"] = true;
-                $_SESSION["user"] = array("username"=>$inUser);
+                $_SESSION["user"] = array("username"=>$inUser, "idUser"=>1000);
                 return true;
             }
             return false;

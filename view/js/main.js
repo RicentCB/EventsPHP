@@ -4,17 +4,16 @@ const eventsContainer = $('main .events-container');
 
 //Metodo AJAX para consultar eventos disponibles
 $.ajax({
-    url: "ajax/events.ajax.php?action=readEvents",
+    url: `ajax/events.ajax.php?action=readEvents&idUser="${kIdUser}"`,
     cache: false,
     contentType: false,
     processData: false,
-    // dataType: "json",
+    dataType: "json",
     beforeSend: () => {
         console.info("Consultando eventos...");
     },
     success: ans => {
         console.log(ans);
-        /*
         if (ans["type"] === "success") {
             let events = ans["message"];
             eventsContainer.html(
@@ -49,7 +48,6 @@ $.ajax({
             })
             console.error(ans["message"]);
         }
-        */
     }
 });
 $(document).ready(() => {
