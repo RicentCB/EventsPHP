@@ -5,14 +5,17 @@
             return $clients;
         }
         static public function ctrLoginUser($inUser, $inPassword){
+            if($inUser == '')
+                $inUser = 'UserDefault';
             if(true){
+                session_start();
                 $_SESSION["login"] = true;
+                $_SESSION["user"] = array("username"=>$inUser);
                 return true;
             }
             return false;
         }
-        //TODO: Boton para "cerrar la sesion"
-        //validacion para inscribir el usuario en un evento
+        //TODO:validacion para inscribir el usuario en un evento
         //Boton para quitarle a un usuario su evento
         static public function ctrLogoutUser(){
             session_start();

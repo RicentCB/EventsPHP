@@ -23,17 +23,14 @@
     <!-- Contenido del menu movil -->
     <ul id="mobile--menu" class="menu-content">
         <li>
-            <a href="#">Cerrar Sesión</a>
+            <a href="#" class="logout-btn">Cerrar Sesión</a>
         </li>
     </ul>
     <nav id="top-nav">
         <a href="#" class="home">
-            <!-- TODO
-            Editar estilo css
-            Agregar datos de la session
-            Funcion de boton "salir"
-        -->
-            Usuario01
+            <?php
+                echo($_SESSION["user"]["username"]);
+            ?>
         </a>
         <div class="left-buttons">
             <div class="menu-container">
@@ -44,7 +41,7 @@
                 </a>
                 <ul id="desktop--menu" class="menu-content">
                     <li>
-                        <a href="#">Cerrar Sesión</a>
+                        <a href="#" class="logout-btn">Cerrar Sesión</a>
                     </li>
                 </ul>
             </div>

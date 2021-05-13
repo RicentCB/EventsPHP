@@ -15,6 +15,15 @@
                 else
                     echo json_encode(array("type"=>"error", "message"=>"Error al iniciar sesion"));
                 break;
+
+            case 'logout':
+                $ans = UsersController::ctrLogoutUser();
+                if($ans)
+                    echo json_encode(array("type"=>"success"));
+                else
+                    echo json_encode(array("type"=>"error", "message"=>"Error al cerrar la sesion"));
+                break;
+            
             default:
                 echo json_encode(array("type"=>"error", "message"=>"Accion no coincide con niguna opcion disponible"));
         }
