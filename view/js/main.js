@@ -1,16 +1,20 @@
 
+const kIdUser = $("main#events").attr("iduser");
 const eventsContainer = $('main .events-container');
-//Metodo AJAX
+
+//Metodo AJAX para consultar eventos disponibles
 $.ajax({
     url: "ajax/events.ajax.php?action=readEvents",
     cache: false,
     contentType: false,
     processData: false,
-    dataType: "json",
+    // dataType: "json",
     beforeSend: () => {
         console.info("Consultando eventos...");
     },
     success: ans => {
+        console.log(ans);
+        /*
         if (ans["type"] === "success") {
             let events = ans["message"];
             eventsContainer.html(
@@ -45,6 +49,7 @@ $.ajax({
             })
             console.error(ans["message"]);
         }
+        */
     }
 });
 $(document).ready(() => {
@@ -64,7 +69,7 @@ $(document).ready(() => {
             $(".menu-container").addClass("is-active");
         }
     })
-    //Salir de la sesion
+    //Cerrar sesion
     contentMenu.on("click", ".logout-btn", function (e) {
         e.preventDefault();
         //Metodo AJAX para cerrar sesion, llama a un endpoint con parametro post
@@ -99,30 +104,49 @@ $(document).ready(() => {
     })
 
 
-    //Pagina de eventos
+    //Boton de inscribirse en algun evento
     eventsContainer.on("click", ".sign-event", function (e) {
         e.preventDefault();
         const idEvent = $(this).parent().attr("id");
+        const eventTitle = $(this).parent().find("h2").html();
+        Swal.fire({
+            title: `¿Estas seguro que desas inscribirte al evento?`,
+            text: `"${eventTitle}"`,
+            showDenyButton: true,
+            confirmButtonText: `Si, aceptar`,
+            denyButtonText: `No, cancelar`,
+        }).then((result) => {
+          if (result.isConfirmed) {
+            //Metodo AJAX para registrar nuevo evento        
+            let data = new FormData();
+            data.append("action", "registerEventUser");
+            data.append("idEvent", idEvent);
+            data.append("idUser", kIdUser);
 
+            $.ajax({
+                url: "ajax/eventsUsers.ajax.php",
+                method: "POST",
+                data: data,
+                cache: false,
+                contentType: false,
+                processData: false,
+                dataType: "json",
+                beforeSend: () => {
+                    console.info("Registando evento");
+                },
+                success: ans => {
+                    if(ans["type"]=="success"){
+                        Swal.fire('Evento registrado correctamente', '', 'success')
+                        .then((result)=>{
+                            window.location.reload();
+                        });
+                    }else{
+                        Swal.fire('Error al registar evento', '', 'error');
+                        console.log(ans);
+                    }
+                }
+            });      
+          } 
+        })  
     })
-    //Metodo AJAX para registrar nuevo evento        
-    let data = new FormData();
-    data.append("action", "registerEventUser");
-
-    $.ajax({
-        url: "ajax/eventsUsers.ajax.php",
-        method: "POST",
-        data: data,
-        cache: false,
-        contentType: false,
-        processData: false,
-        // dataType: "json",
-        // beforeSend: () => {
-        //     console.info("Consultando eventos...");
-        // },
-        success: ans => {
-            console.log(ans);
-        }
-    });
-
 })
