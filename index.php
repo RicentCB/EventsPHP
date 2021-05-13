@@ -1,4 +1,5 @@
 <?php
+    require_once "global.php";
     require_once "controller/main.controller.php";
 
     // Controlador

@@ -5,12 +5,13 @@
             return $clients;
         }
         static public function ctrLoginUser($inUser, $inPassword){
+            require_once("../global.php");
             if($inUser == '')
                 $inUser = 'UserDefault';
             if(true){
                 session_start();
                 $_SESSION["login"] = true;
-                $_SESSION["user"] = array("username"=>$inUser, "idUser"=>1000);
+                $_SESSION["user"] = array("username"=>$GLOBALVAR["nameDefaultUser"], "idUser"=>$GLOBALVAR["idDefaultUser"]);
                 return true;
             }
             return false;
