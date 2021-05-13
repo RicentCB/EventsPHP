@@ -68,6 +68,7 @@
         <div id="events-registered-container">
             <h1>Eventos ya registrados</h1>
             <section class="events-container" id="events-registered">
+                <!-- TODO: Cambiar estilo al boton de cancelar -->
             </section>
         </div>
     </main>

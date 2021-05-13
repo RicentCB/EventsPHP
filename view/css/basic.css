@@ -241,6 +241,9 @@ section#first-slide .content>div>h1 {
     transition: all 0.2s ease;
     color: rgba(53, 248, 255, 0.8);
 }
+.start-button.pink-button{
+    color: rgba(255, 96, 136, 0.8);
+}
 
 .start-button:before {
     content: "";
@@ -257,6 +260,9 @@ section#first-slide .content>div>h1 {
 
 .start-button:hover {
     color: rgba(0, 247, 255, 1.0);
+}
+.start-button.pink-button:hover {
+    color: rgb(255, 50, 101);
 }
 
 .start-button span {
@@ -285,10 +291,17 @@ section#first-slide .content>div>h1 {
 .start-button:hover svg {
     stroke: rgba(0, 247, 255, 1.0);
 }
+.start-button.pink-button:hover svg {
+    stroke: rgba(255, 50, 101, 1.0);
+}
 
 .start-button:hover:before {
     width: 100%;
     background: rgba(57, 73, 73, 0.75);
+}
+.start-button.pink-button:hover:before {
+    width: 100%;
+    background: rgba(73, 57, 73, 0.75);
 }
 
 .start-button:hover svg {

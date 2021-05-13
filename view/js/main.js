@@ -44,7 +44,7 @@ $.ajax({
         }
     }
 });
-//Metodo AJAX para consultar eventos ya registrados disponibles
+//Metodo AJAX para consultar eventos YA registrados
 $.ajax({
     url: `ajax/events.ajax.php?action=getAlreadyRegisteredEvents&idUser=${kIdUser}`,
     cache: false,
@@ -66,7 +66,7 @@ $.ajax({
                         <h2>${event["titulo"]}</h2>
                         <h3>${event["fecha"]}</h3>
                         <p>${event["descripcion"]}</p>
-                        <a href="#" class="start-button delete-event">
+                        <a href="#" class="start-button pink-button delete-event">
                             <span>Cancelar</span>
                             <svg width="13px" height="10px" viewBox="0 0 13 10">
                             <path d="M1,5 L11,5"></path>
@@ -185,5 +185,20 @@ $(document).ready(() => {
             });      
           } 
         })  
-    })
+    });
+
+    //Boton de cancelar la inscripicion
+    eventsContainer.on("click", ".delete-event", function (e) {
+        e.preventDefault();
+        const idEvent = $(this).parent().attr("id");
+        const eventTitle = $(this).parent().find("h2").html();
+        Swal.fire({
+            title: `¿Estas seguro que desas cancelar tu registro al evento?`,
+            text: `"${eventTitle}"`,
+            icon: "warning",
+            showDenyButton: true,
+            confirmButtonText: `Si, aceptar`,
+            denyButtonText: `No, cancelar`,
+        })
+    });
 })
