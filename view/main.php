@@ -49,9 +49,9 @@
         </div>
     </nav>
     <!-- Contendor de la Principal -->
-    <main id="events">
+    <main id="events" iduser="<?php echo($_SESSION["user"]["idUser"])?>">
         <h1>Eventos Disponibles</h1>
-        <section class="events-container">
+        <section class="events-container" id="events-not-registered">
             <!-- <div class="event">
                 <h2>Titulo</h2>
                 <h3>Fecha</h3>
@@ -64,14 +64,23 @@
                     </svg>
                 </a>
             </div> -->
-        <!-- <?php
-            $users = EventsUsersController::ctrReadEventsUsers();
-            echo "<pre>";
-            var_dump($users);
-            echo "</pre>";
-        ?> -->
         </section>
+        <div id="events-registered-container">
+            <h1>Eventos ya registrados</h1>
+            <section class="events-container" id="events-registered">
+            </section>
+        </div>
     </main>
+    <?php
+        // $truncate = EventsUsersModel::mdlCleanEventsUsers();
+        // echo "<pre>";
+        //     echo ($truncate);
+        // echo "</pre>";
+        // $users = EventsUsersModel::mdlReadEventsUsers(NULL, NULL);
+        // echo "<pre>";
+        // var_dump($users);
+        // echo "</pre>";
+    ?>
 
     <!-- ======== SCRIPTS ======== -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"

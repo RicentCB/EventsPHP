@@ -10,13 +10,13 @@
             //Leer todos los eventos
             $allEvents = EventsController::ctrReadEvents();
             //Leer eventos a los cuales ya se ha registrado el usuario
-            $eventsRegistered = EventsUsersController::ctrReadEventsUsers("usuarioID", $idUser);
+            $eventsUsers = EventsUsersController::ctrReadEventsUsers("usuarioID", $idUser);
             $eventsNotRegistered = array();
             //Verficiar que eventos no se ha inscrito el usuario
             foreach ($allEvents as $event) {
                 $isAlreadyRegistered = false;
-                foreach($eventsRegistered as $eventRegistered){
-                    if($event["eventoID"] == $eventRegistered["eventoID"])
+                foreach($eventsUsers as $eventUs){
+                    if($event["eventoID"] == $eventUs["eventoID"])
                         $isAlreadyRegistered = true;
                 }
                 if(!$isAlreadyRegistered)
@@ -31,13 +31,13 @@
             //Leer todos los eventos
             $allEvents = EventsController::ctrReadEvents();
             //Leer eventos a los cuales ya se ha registrado el usuario
-            $eventsRegistered = EventsUsersController::ctrReadEventsUsers("usuarioID", $idUser);
+            $eventsUsers = EventsUsersController::ctrReadEventsUsers("usuarioID", $idUser);
             $eventsRegistered = array();
             //Verficiar que eventos no se ha inscrito el usuario
             foreach ($allEvents as $event) {
                 $isAlreadyRegistered = false;
-                foreach($eventsRegistered as $eventRegistered){
-                    if($event["eventoID"] == $eventRegistered["eventoID"])
+                foreach($eventsUsers as $eventUs){
+                    if($event["eventoID"] == $eventUs["eventoID"])
                         $isAlreadyRegistered = true;
                 }
                 if($isAlreadyRegistered)

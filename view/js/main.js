@@ -1,10 +1,10 @@
 
 const kIdUser = $("main#events").attr("iduser");
-const eventsContainer = $('main .events-container');
+const eventsContainer = $('main#events');
 
 //Metodo AJAX para consultar eventos disponibles
 $.ajax({
-    url: `ajax/events.ajax.php?action=readEvents&idUser="${kIdUser}"`,
+    url: `ajax/events.ajax.php?action=getAvailableEvents&idUser=${kIdUser}`,
     cache: false,
     contentType: false,
     processData: false,
@@ -13,10 +13,11 @@ $.ajax({
         console.info("Consultando eventos...");
     },
     success: ans => {
+        console.clear();
         console.log(ans);
         if (ans["type"] === "success") {
             let events = ans["message"];
-            eventsContainer.html(
+            eventsContainer.find("#events-not-registered").html(
                 events.map(event =>
                 (`<div class="event" id="${event["eventoID"]}">
                     <h2>${event["titulo"]}</h2>
@@ -32,13 +33,51 @@ $.ajax({
                 </div>`)
                 )
             );
-            // Swal.fire({
-            //     title: 'Bienvenido',
-            //     text: 'Aqui podrás revisar nuestros ultimos eventos',
-            //     icon: 'success',
-            //     confirmButtonText: 'Aceptar'
-            // })
-            console.log("Eventos Cargados");
+        } else {
+            Swal.fire({
+                title: 'Error',
+                text: 'Error al mostrar los eventos,',
+                icon: 'error',
+                confirmButtonText: 'Aceptar'
+            })
+            console.error(ans["message"]);
+        }
+    }
+});
+//Metodo AJAX para consultar eventos ya registrados disponibles
+$.ajax({
+    url: `ajax/events.ajax.php?action=getAlreadyRegisteredEvents&idUser=${kIdUser}`,
+    cache: false,
+    contentType: false,
+    processData: false,
+    dataType: "json",
+    beforeSend: () => {
+        console.info("Consultando eventos ya registrados...");
+    },
+    success: ans => {
+        console.log(ans);
+        if (ans["type"] === "success") {
+            let events = ans["message"];
+            if(events.length > 0){
+                //Ya hay eventos registrados
+                eventsContainer.find("#events-registered").html(
+                    events.map(event =>
+                        (`<div class="event" id="${event["eventoID"]}">
+                        <h2>${event["titulo"]}</h2>
+                        <h3>${event["fecha"]}</h3>
+                        <p>${event["descripcion"]}</p>
+                        <a href="#" class="start-button delete-event">
+                            <span>Cancelar</span>
+                            <svg width="13px" height="10px" viewBox="0 0 13 10">
+                            <path d="M1,5 L11,5"></path>
+                            <polyline points="8 1 12 5 8 9"></polyline>
+                            </svg>
+                            </a>
+                        </div>`)
+                    )
+                );
+                eventsContainer.find("#events-registered-container").css("display", "block");
+            }
         } else {
             Swal.fire({
                 title: 'Error',

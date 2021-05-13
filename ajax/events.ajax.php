@@ -8,10 +8,15 @@
 
     if(isset($_GET["action"])){
         switch($_GET["action"]){
-            case 'readEvents':
-                $idUser = $_GET["idUser"];
+            case 'getAvailableEvents':
+                $idUser = (int) $_GET["idUser"];
                 $eventsAvaileble = EventsController::ctrGetNotRegisteredEvents($idUser);
                 echo json_encode(array("type"=>"success", "message"=>$eventsAvaileble));
+                break;
+            case 'getAlreadyRegisteredEvents':
+                $idUser = (int) $_GET["idUser"];
+                $eventsAvailable = EventsController::ctrGetRegisteredEvents($idUser);
+                echo json_encode(array("type"=>"success", "message"=>$eventsAvailable));
                 break;
             default:
                 echo json_encode(array("type"=>"error", "message"=>"Accion no coincide con niguna opcion disponible"));
